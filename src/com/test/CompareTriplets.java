@@ -39,7 +39,21 @@ public class CompareTriplets {
 		// stringCheck();
 //streams();
 		// calculateMultiples();
-		calculateSmallestNumber();
+//		calculateSmallestNumber();
+		convertToBinary();
+	}
+
+	private static void convertToBinary() {
+		int given = 34;
+		int mod;
+		String s = "";
+		while (given > 0) {
+			mod = given % 2;
+			s = mod + "" + s;
+			given = given / 2;
+		}
+		System.out.print(s);
+
 	}
 
 	private static void calculateSmallestNumber() {
