@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -39,38 +40,63 @@ public class CompareTriplets {
 		// stringCheck();
 //streams();
 		// calculateMultiples();
-//		calculateSmallestNumber();
+//		calculateSmallestNumberDoesNotOccurInArray();
 		convertToBinary();
+//		binaryToDecimal();
+	}
+
+	private static void binaryToDecimal() {
+		String binaryString="10100001";  
+		int decimal=Integer.parseInt(binaryString,2);  
+		System.out.println(decimal);
 	}
 
 	private static void convertToBinary() {
-		int given = 34;
+		int given = 161;
 		int mod;
 		String s = "";
+		int count = 0;
+		List<Integer> gap = new ArrayList<>();
 		while (given > 0) {
 			mod = given % 2;
 			s = mod + "" + s;
 			given = given / 2;
+
+			if (mod == 1) {
+				if (count > 0) {
+					gap.add(count);
+				}
+				count = 0;
+			} else {
+				if (s.contains("1"))
+					count++;
+			}
 		}
 		System.out.print(s);
-
+		System.out.println();
+		System.out.println("Size ->" + gap.size());
+		List<Integer> sortedList =gap.stream().sorted().collect(Collectors.toList());
+		if (gap.size() > 0)
+			System.out.println("Largest gap->" + sortedList.get(sortedList.size() - 1));
 	}
 
-	private static void calculateSmallestNumber() {
-		int temp[] = { 1 };
-		int[] arr = { 1, 3, 6, 4, 1, 2, 8 };
-		List<Integer> num = Arrays.stream(arr).sorted() // IntStream
+	private static void calculateSmallestNumberDoesNotOccurInArray() {
+		int[] A = { -1, -3, -6, -4, -1, -2, -8,1,3,2,4,6,7,8,9,5 };
+		int temp =  1 ;
+	
+		List<Integer> num = Arrays.stream(A).sorted() // IntStream
 				.boxed() // Stream<Integer>
 				.collect(Collectors.toList());
 
-		num.forEach(a -> {
-			System.out.print(a);
-			if (a == temp[0]) {
-				temp[0]++;
+		
+		for (int integer : num) {
+			if (integer == temp) {
+				temp++;
 			}
-		});
+		}
+		
 		System.out.println();
-		System.out.println(temp[0]);
+		System.out.println(temp);
 
 	}
 
