@@ -1,4 +1,4 @@
-package com.example.designpatterns.strategy;
+package com.example.designpatterns.behavioral.strategy;
 
 public class Item {
 	private String upcCode;

@@ -1,4 +1,4 @@
-package com.example.designpatterns.strategy;
+package com.example.designpatterns.behavioral.strategy;
 
 public class PaypalStrategy implements PaymentStrategy {
 	private String emailId;
