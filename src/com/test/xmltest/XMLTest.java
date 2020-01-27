@@ -1,4 +1,4 @@
-package com.test;
+package com.test.xmltest;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
