@@ -26,13 +26,13 @@ public class CalculateLetters {
 		List<String>  strings= new ArrayList<String>();
 		Integer in;
 		
-		for (int i = 0; i < chars.length; i++) {
-			in = map.get(chars[i]);
+		for (int index = 0; index < chars.length; index++) {
+			in = map.get(chars[index]);
 			if(in==null) {
-				map.put(chars[i], 1);
+				map.put(chars[index], 1);
 			}else {
 				in++;
-				map.put(chars[i], in);
+				map.put(chars[index], in);
 			}
 		}
 		
