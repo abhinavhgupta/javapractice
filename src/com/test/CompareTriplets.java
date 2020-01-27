@@ -15,6 +15,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.function.Predicate;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
@@ -24,30 +26,47 @@ public class CompareTriplets {
 	public static void main(String[] args) {
 		int[] arr = { 10000000, 20000000, 3, 0, 0, -1, -2, -1, -1, -1 };
 
-		// plusMinus(arr);
-		// printHash(6);
-		// calculateMin();
-		// calculateCandels();
-//gcd();
-		// timeConversion();
-		// calculateGrades();
-		// hotelLifts();
-		// packNumbers();
-//bonAptit();
-		// migratoryBirds();
-		// countApplesAndOranges();
-		// sumOfHourGlass();
-		// stringCheck();
-//streams();
-		// calculateMultiples();
+//		plusMinus(arr);
+//		printHash(6);
+//		calculateMin();
+//		calculateCandels();
+//		gcd();
+//		timeConversion();
+//		calculateGrades();
+//		hotelLifts();
+//		packNumbers();
+//		bonAptit();
+//		migratoryBirds();
+//		countApplesAndOranges();
+//		sumOfHourGlass();
+//		stringCheck();
+//		streams();
+//		calculateMultiples();
 //		calculateSmallestNumberDoesNotOccurInArray();
-		convertToBinary();
+//		convertToBinary();
 //		binaryToDecimal();
+		streamOnArrayList();
+
+	}
+
+	private static void streamOnArrayList() {
+		List<Integer> integers = new ArrayList<>();
+
+		for (int i = 0; i < 25; i++) {
+			integers.add(i);
+		}
+
+		//Predicate<Integer> byNum = in -> in > 30;
+
+		List<Integer> result = integers.stream().filter(in -> in > 5).collect(Collectors.toList());
+
+		result.forEach(in -> System.out.print(in + ", "));
+
 	}
 
 	private static void binaryToDecimal() {
-		String binaryString="10100001";  
-		int decimal=Integer.parseInt(binaryString,2);  
+		String binaryString = "10100001";
+		int decimal = Integer.parseInt(binaryString, 2);
 		System.out.println(decimal);
 	}
 
@@ -75,26 +94,25 @@ public class CompareTriplets {
 		System.out.print(s);
 		System.out.println();
 		System.out.println("Size ->" + gap.size());
-		List<Integer> sortedList =gap.stream().sorted().collect(Collectors.toList());
+		List<Integer> sortedList = gap.stream().sorted().collect(Collectors.toList());
 		if (gap.size() > 0)
 			System.out.println("Largest gap->" + sortedList.get(sortedList.size() - 1));
 	}
 
 	private static void calculateSmallestNumberDoesNotOccurInArray() {
-		int[] A = { -1, -3, -6, -4, -1, -2, -8,1,3,2,4,6,7,8,9,5 };
-		int temp =  1 ;
-	
+		int[] A = { -1, -3, -6, -4, -1, -2, -8, 1, 3, 2, 4, 6, 7, 8, 9, 5 };
+		int temp = 1;
+
 		List<Integer> num = Arrays.stream(A).sorted() // IntStream
 				.boxed() // Stream<Integer>
 				.collect(Collectors.toList());
 
-		
 		for (int integer : num) {
 			if (integer == temp) {
 				temp++;
 			}
 		}
-		
+
 		System.out.println();
 		System.out.println(temp);
 
@@ -205,20 +223,36 @@ public class CompareTriplets {
 	}
 
 	private static void hotelLifts() {
-		List<Integer> arr = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
-				23, 24, 25, 26, 27, 28, 29, 30, 113, 104);
+//		List<Integer> arr = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
+//				23, 24, 25, 26, 27, 28, 29, 30, 113, 104);
 
+		List<Integer> arr = Arrays.asList(4, 13, 14, 24, 113, 104);
 		List<Integer> integers = new ArrayList<>();
 		int count = 1;
+
+	/*	for (Integer in : arr) {
+			int newValue = in;
+			char[] chars = ("" + newValue).toCharArray();
+			String las = "";
+			if (chars.length >= 2) {
+				las = new String(chars);
+			}
+			if (String.valueOf(chars[chars.length - 1]).equals(String.valueOf(4)) || las.contains("13")
+					|| las.equals("13")) {
+				newValue = ++in;
+			}
+			integers.add(newValue);
+		}*/
+
 		while (integers.size() < arr.size()) {
 
 			char[] chars = ("" + count).toCharArray();
 			String las = "";
 			if (chars.length >= 2) {
-//				las = String.valueOf(chars[chars.length - 2] + "" + chars[chars.length - 1]);
 				las = new String(chars);
 			}
-			if (String.valueOf(chars[chars.length - 1]).equals(String.valueOf(4)) || las.equals("13")) {
+			if (String.valueOf(chars[chars.length - 1]).equals(String.valueOf(4)) || las.contains("13")
+					|| las.equals("13")) {
 				count++;
 				continue;
 			}
@@ -411,6 +445,9 @@ public class CompareTriplets {
 
 	}
 
+	/**
+	 * Sum of 1st 4 smallest numbers & sum of last 4 numbers
+	 */
 	@SuppressWarnings("unchecked")
 	private static void calculateMin() {
 		long[] arr = { 256741038, 623958417, 467905213, 714532089, 938071625 };
@@ -421,30 +458,12 @@ public class CompareTriplets {
 		// Collections.sort(art);
 
 		LongStream.of(arr).forEach(a -> System.out.print(a + ","));
-
+		System.out.println();
 		long[] first = Arrays.copyOfRange(arr, 0, 4);
 		long[] last = Arrays.copyOfRange(arr, arr.length - 4, arr.length);
 		System.out.println();
 		System.out.print(LongStream.of(first).sum());
 		System.out.print(" " + LongStream.of(last).sum());
-
-		/*
-		 * List<Integer> first = art.subList(0, 4); List<Integer> last =
-		 * art.subList(art.size()-4, art.size());
-		 * 
-		 * 
-		 * 
-		 * Double doubleSum = first.stream().mapToDouble(Integer::intValue).sum();
-		 * 
-		 * System.out.print(doubleSum.intValue());
-		 * 
-		 * doubleSum = last.stream().mapToDouble(Integer::intValue).sum();
-		 * 
-		 * System.out.print(" "+doubleSum.intValue());
-		 * 
-		 * 
-		 * System.out.println(" ");
-		 */
 
 	}
 
