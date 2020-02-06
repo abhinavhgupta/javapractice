@@ -6,12 +6,22 @@ public class ThreadDemo {
 		Thread thread = new Thread(() -> {
 			for (int i = 0; i < 5; i++) {
 				System.out.println("thread");
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			}
 		});
 
 		Thread thread2 = new Thread(() -> {
 			for (int i = 0; i < 5; i++) {
 				System.out.println("thread2");
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			}
 		});
 
