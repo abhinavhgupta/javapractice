@@ -5,11 +5,37 @@ public class Q {
 	boolean valueSet = false;
 
 	public void getNum() {
-		System.out.println("GetNum " + num);
+		synchronized (this) {
+			while (!valueSet) {
+				try {
+					wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			System.out.print("GetNum " + num);
+			System.out.print(", Thread " + Thread.currentThread().getName());
+			System.out.println();
+			valueSet = false;
+			notify();
+		}
 	}
 
 	public void setNum(int num) {
-		System.out.println("SetNum " + num);
-		this.num = num;
+		synchronized (this) {
+			while (valueSet) {
+				try {
+					wait();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			System.out.print("SetNum " + num);
+			System.out.print(", Thread " + Thread.currentThread().getName());
+			System.out.println();
+			this.num = num;
+			valueSet = true;
+			notify();
+		}
 	}
 }
