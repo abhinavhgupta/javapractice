@@ -2,7 +2,7 @@ package com.test.poc.threading;
 
 public class SynchronizedDemo {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		Counter counter = new Counter();
 
 		Thread thread = new Thread(() -> {
@@ -11,7 +11,9 @@ public class SynchronizedDemo {
 			}
 		});
 		thread.start();
-
+		thread.join();
+		
+		
 		System.out.println("Count " + counter.counter);
 	}
 
