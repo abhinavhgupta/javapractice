@@ -16,7 +16,7 @@ public class Producer implements Runnable {
 		while (true) {
 			q.setNum(i++);
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(10);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
