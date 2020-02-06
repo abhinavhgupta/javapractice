@@ -28,6 +28,11 @@ public class ThreadDemo {
 		thread.start();
 		Thread.sleep(10);
 		thread2.start();
+		
+		thread.join();
+		thread2.join();
+		
+		System.out.println("Bye");
 
 	}
 }
