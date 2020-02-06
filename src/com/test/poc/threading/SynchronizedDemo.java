@@ -31,6 +31,8 @@ class Counter {
 	int counter;
 
 	public void increment() {
-		counter++;
+		synchronized (this) {
+			counter++;
+		}
 	}
 }
