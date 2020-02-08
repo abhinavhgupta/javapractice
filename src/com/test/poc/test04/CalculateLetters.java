@@ -1,4 +1,4 @@
-package com.test;
+package com.test.poc.test04;
 
 import java.util.ArrayList;
 import java.util.Collections;
