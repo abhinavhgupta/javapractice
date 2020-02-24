@@ -14,8 +14,10 @@ public class Consumer implements Runnable {
 		
 		while (true) {
 			try {
-				System.out.println(queue.take());
-//				Thread.sleep(1000);
+//				System.out.println("Size: "+queue.size());
+				//System.out.println(Thread.currentThread().getName()+", "+queue.take());
+				System.out.println("Msg, "+queue.take()+", Consumed by "+ Thread.currentThread().getName());
+				Thread.sleep(4000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

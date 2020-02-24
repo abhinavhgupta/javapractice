@@ -6,13 +6,15 @@ public class Q {
 
 	public void getNum() {
 		synchronized (this) {
-			while (!valueSet) {
+		/*	while (!valueSet) {
 				try {
+					System.out.println("wait get " + Thread.currentThread().getName());
 					wait();
+					System.out.println("wait get break");
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-			}
+			}*/
 			System.out.print("GetNum " + num);
 			System.out.print(", Thread " + Thread.currentThread().getName());
 			System.out.println();
@@ -25,7 +27,9 @@ public class Q {
 		synchronized (this) {
 			while (valueSet) {
 				try {
+					System.out.println("wait set " + Thread.currentThread().getName());
 					wait();
+					System.out.println("wait set break");
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

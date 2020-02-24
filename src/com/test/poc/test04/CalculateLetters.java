@@ -19,7 +19,7 @@ public class CalculateLetters {
 
 	public static void main(String[] args) {
 		
-		String input = "adfsdfasdfsadfsa";
+		String input = "adfsdfasdfsadfsawertyuwe";
 		char[] chars = input.toCharArray();
 		
 		Map<Character, Integer> map = new HashMap<>();

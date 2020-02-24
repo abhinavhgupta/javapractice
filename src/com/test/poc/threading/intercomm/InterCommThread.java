@@ -13,8 +13,8 @@ public class InterCommThread {
 
 	public static void main(String[] args) {
 		Q q = new Q();
-		new Consumer(q);
-		new Producer(q);
+		
+		new Producer(q);new Consumer(q);
 	}
 
 }

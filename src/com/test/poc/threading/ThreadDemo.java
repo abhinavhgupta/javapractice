@@ -5,7 +5,7 @@ public class ThreadDemo {
 	public static void main(String[] args) throws InterruptedException {
 		Thread thread = new Thread(() -> {
 			for (int i = 0; i < 5; i++) {
-				System.out.println("thread " + Thread.currentThread().getName());
+				System.out.println("thread 1" );
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
@@ -16,7 +16,7 @@ public class ThreadDemo {
 
 		Thread thread2 = new Thread(() -> {
 			for (int i = 0; i < 5; i++) {
-				System.out.println("thread2");
+				System.out.println("thread 2");
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {

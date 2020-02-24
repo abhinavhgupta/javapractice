@@ -15,11 +15,11 @@ public class Producer implements Runnable {
 		int i = 0;
 		while (true) {
 			q.setNum(i++);
-			try {
-				Thread.sleep(10);
+			/*try {
+				//Thread.sleep(10);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
-			}
+			}*/
 		}
 
 	}
