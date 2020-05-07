@@ -26,26 +26,26 @@ public class CompareTriplets {
 	public static void main(String[] args) {
 		int[] arr = { 10000000, 20000000, 3, 0, 0, -1, -2, -1, -1, -1 };
 
-//		plusMinus(arr);
-//		printHash(6);
-//		calculateMin();
-//		calculateCandels();
-//		gcd();
-//		timeConversion();
-//		calculateGrades();
-//		hotelLifts();
-//		packNumbers();
-//		bonAptit();
-//		migratoryBirds();
-//		countApplesAndOranges();
-//		sumOfHourGlass();
-//		stringCheck();
-//		streams();
-//		calculateMultiples();
-//		calculateSmallestNumberDoesNotOccurInArray();
-//		convertToBinary();
-//		binaryToDecimal();
-		streamOnArrayList();
+		/*plusMinus(arr);
+		printHash(6);
+		calculateMin();
+		calculateCandels();
+		gcd();
+		timeConversion();
+		calculateGrades();
+		hotelLifts();
+		packNumbers();
+		bonAptit();
+		migratoryBirds();
+		countApplesAndOranges();
+		sumOfHourGlass();*/
+		stringCheck();
+		/*streams();
+		calculateMultiples();
+		calculateSmallestNumberDoesNotOccurInArray();
+		convertToBinary();
+		binaryToDecimal();
+		streamOnArrayList();*/
 
 	}
 
@@ -148,7 +148,15 @@ public class CompareTriplets {
 
 		Map<Integer, Integer> hotelcount = new HashMap<>();
 		String keywords = "breakfast beach citycenter location metro view staff price";
-		String test = "This hotel has a nice view of the citycenter. The location is perfect., This hotel has a nice view of the citycenter. The location is perfect., This hotel has a nice view of the citycenter. The location is perfect.,This hotel has a nice view of the citycenter. The location is perfect.,This hotel has a nice view of the citycenter. The location is perfect.,This hotel has a nice view of the citycenter. The location is perfect.";
+		String test = "This hotel has a nice view of the citycenter. "
+				+ "The location is perfect., This hotel has a nice "
+				+ "view of the citycenter. The location is perfect.,"
+				+ " This hotel has a nice view of the citycenter. "
+				+ "The location is perfect.,This hotel has a nice "
+				+ "view of the citycenter. The location is perfect.,"
+				+ "This hotel has a nice view of the citycenter. The "
+				+ "location is perfect.,This hotel has a nice view of "
+				+ "the citycenter. The location is perfect.";
 		List<String> reviews = Arrays.asList(test.split(","));
 		List<String> strings = Arrays.asList(keywords.split(" "));
 		// hotelcount.put(1, 1);
