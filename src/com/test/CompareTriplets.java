@@ -46,8 +46,39 @@ public class CompareTriplets {
 		convertToBinary();
 		binaryToDecimal();
 		streamOnArrayList();*/
+		PackAndCoutLettersInString();
 
 	}
+	/**
+	* Given input  "AAABBAAAAABBBCCCCCCCCCAAAAA" and it should give out put "3A2B5A3B9C5A"
+	*/
+	public static void PackAndCoutLettersInString(String input){
+		    String output="";
+		    int count=0;
+		        int length=input.length();
+		     char previousChar = input.charAt(0);
+		     char currentChar;
+		      
+		    for(int index=0; index<length ;index++){
+		        
+		   	        currentChar = input.charAt(index);
+		        
+		        
+		        if (previousChar == currentChar) {
+				    count++;
+			    } else {
+			        output = output+String.valueOf(count)+previousChar;
+			    	count = 1;
+			    }
+			    // Added to get last count coz in end it wont go to else block
+			    if(index==length-1){
+			        output = output+String.valueOf(count)+previousChar;
+			    }
+				previousChar = currentChar;
+			}
+		        		    System.out.println(output);
+		    
+		}
 
 	private static void streamOnArrayList() {
 		List<Integer> integers = new ArrayList<>();
